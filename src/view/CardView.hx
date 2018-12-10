@@ -48,12 +48,12 @@ class CardView extends Container {
 
 	public function show():Void {
 		if (sprite.texture != Assets.images.get("cards_back").texture) return;
-		var tintSpeed = 65793 * 5;
+		var tintSpeed = 0x10101 * 5;
 		var time = 0.3;
 		Actuate.tween(sprite, time, {x: sprite.width / 2})
 		.ease(Linear.easeNone)
 		.onUpdate (function() {
-			if (sprite.tint > 0) sprite.tint -= tintSpeed;
+			if (sprite.tint - tintSpeed > 0) sprite.tint -= tintSpeed;
 		});
 
 		Actuate.tween(sprite.scale, time, {x: 0})
@@ -64,7 +64,10 @@ class CardView extends Container {
 			Actuate.tween(sprite, time, {x: 0})
 			.ease(Linear.easeNone)
 			.onUpdate (function() {
-				if (sprite.tint < 16777215) sprite.tint += tintSpeed;
+				if (sprite.tint + tintSpeed < 0xFFFFFF) sprite.tint += tintSpeed;
+			})
+			.onComplete(function() {
+				sprite.tint = 0xFFFFFF;
 			});
 
 			Actuate.tween(sprite.scale, time, {x: 1})
