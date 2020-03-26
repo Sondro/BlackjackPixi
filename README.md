@@ -1,10 +1,11 @@
-Онлайн сборка:
-http://mssite.org/projects/dev/blackjack/
+Some old blackjack example as test task for random "game" studio.
+Made in three days without any experience in pixijs, hehe.
+Fun thing that i used khamake for builds, but khafile.js is lost now.
+Also tried to use MVC here, but result is even messier after all, do not tried it much before for games.
 
-Haxelib-зависимости:
+Online:
+https://rblsb.github.io/BlackjackPixi/
+
+Haxelib-deps:
 * pixijs (git)
 * actuate (git)
-
-Для сборки с помощью Haxe 4 достаточно закомментировать `implements Dynamic` [на данной строке](https://github.com/pixijs/pixi-haxe/blob/dev/src/pixi/core/renderers/webgl/filters/Filter.hx#L103) pixi-биндингов.
-
-С Haxe 3 проблем не замечено.
